@@ -1,10 +1,18 @@
 # Auth Log Triage
 
+[![Testes Python](https://github.com/Yuurih44/auth-log-triage/actions/workflows/tests.yml/badge.svg)](https://github.com/Yuurih44/auth-log-triage/actions/workflows/tests.yml)
+![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+
 Ferramenta defensiva de linha de comando para resumir eventos de autenticação e sinalizar falhas repetidas por IP em uma janela de tempo. Processa arquivos locais e funciona sem serviços externos ou dependências de terceiros.
 
 Projeto educacional preparado com assistência do Codex. O objetivo é praticar parsing, validação, correlação temporal, testes e documentação de regras de detecção.
 
 ## Executar
+
+```sh
+git clone https://github.com/Yuurih44/auth-log-triage.git
+cd auth-log-triage
+```
 
 Requer Python 3.10 ou superior. Na pasta do projeto:
 
@@ -15,6 +23,17 @@ python -m unittest -v
 ```
 
 No Linux, use `python3` se necessário. O relatório JSON é escrito na saída padrão; redirecione para um arquivo para salvá-lo.
+
+## Instalação como comando
+
+A execução direta acima usa somente a biblioteca padrão. Para instalar o comando na sua máquina, dentro de um ambiente virtual:
+
+```sh
+python -m pip install .
+auth-log-triage --help
+```
+
+O pacote não está publicado no PyPI; a instalação usa este checkout local. Os arquivos de exemplo permanecem na pasta do repositório. Para preparar o ambiente de desenvolvimento, veja [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Entrada
 
@@ -49,3 +68,11 @@ O programa é offline, não bloqueia endereços e não monitora eventos em tempo
 ## Próximos passos
 
 Criar adaptadores para formatos reais, avaliar falsos positivos com conjuntos rotulados e reduzir uso de memória. Esses itens ainda não estão implementados.
+
+## Documentação do projeto
+
+- [Arquitetura e decisões](docs/ARCHITECTURE.md)
+- [Como contribuir](CONTRIBUTING.md)
+- [Histórico de alterações](CHANGELOG.md)
+
+Veja um [relatório real da demonstração](examples/report.json), gerado pelo exemplo incluído.

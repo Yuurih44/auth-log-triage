@@ -1,0 +1,20 @@
+{
+  "valid_events": 6,
+  "successes": 1,
+  "failures": 5,
+  "invalid_line_numbers": [],
+  "configuration": {
+    "threshold": 5,
+    "window_seconds": 300
+  },
+  "findings": [
+    {
+      "rule": "repeated_auth_failures",
+      "source_ip": "192.0.2.10",
+      "failures_in_window": 5,
+      "window_start": "2026-01-01T10:00:00+00:00",
+      "window_end": "2026-01-01T10:02:00+00:00",
+      "interpretation": "Revisar contexto; não comprova ataque ou invasão."
+    }
+  ]
+}

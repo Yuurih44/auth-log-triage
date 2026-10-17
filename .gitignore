@@ -2,3 +2,9 @@ __pycache__/
 *.pyc
 .venv/
 reports/
+
+# Ferramentas e empacotamento
+.ruff_cache/
+build/
+dist/
+*.egg-info/

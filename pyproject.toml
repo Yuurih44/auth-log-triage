@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auth-log-triage"
+version = "0.2.0"
+description = "Triagem offline de eventos de autenticação e correlação temporal de falhas por IP."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Yuri Siqueira Alves" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff==0.14.3"]
+
+[project.scripts]
+auth-log-triage = "triage:main"
+
+[project.urls]
+Repository = "https://github.com/Yuurih44/auth-log-triage"
+Issues = "https://github.com/Yuurih44/auth-log-triage/issues"
+
+[tool.setuptools]
+py-modules = ["triage"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "UP"]

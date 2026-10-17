@@ -1,12 +1,12 @@
 """Triagem offline de eventos JSONL de autenticação. Apenas biblioteca padrão."""
 
 import argparse
-from collections import Counter, defaultdict
-from datetime import datetime, timedelta
 import ipaddress
 import json
-from pathlib import Path
 import sys
+from collections import Counter, defaultdict
+from datetime import datetime, timedelta
+from pathlib import Path
 
 
 def parse_event(line):
@@ -56,14 +56,16 @@ def analyze(lines, threshold=5, window_seconds=300):
                 left += 1
             count = right - left + 1
             if count >= threshold:
-                findings.append({
-                    "rule": "repeated_auth_failures",
-                    "source_ip": source,
-                    "failures_in_window": count,
-                    "window_start": timestamps[left].isoformat(),
-                    "window_end": end.isoformat(),
-                    "interpretation": "Revisar contexto; não comprova ataque ou invasão.",
-                })
+                findings.append(
+                    {
+                        "rule": "repeated_auth_failures",
+                        "source_ip": source,
+                        "failures_in_window": count,
+                        "window_start": timestamps[left].isoformat(),
+                        "window_end": end.isoformat(),
+                        "interpretation": "Revisar contexto; não comprova ataque ou invasão.",
+                    }
+                )
                 break
     return {
         "valid_events": counts.total(),
